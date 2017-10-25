@@ -19,10 +19,10 @@ Share.configUSharePlatforms()
 
 **代码**
 ```
-Share.share(data: ["title":"分享的标题",
-"content":"分享的内容",
-"url":"https://www.baidu.com",
-"imageUrl":"https://www.baidu.com/pic/login.png"])
+Share.share(data: [ "title":"分享的标题",
+                    "content":"分享的内容",
+                    "url":"https://www.baidu.com",
+                    "imageUrl":"https://www.baidu.com/pic/login.png"])
 ```
 **参数**
 > data 字典类型
