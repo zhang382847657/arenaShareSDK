@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>project</key>
+	<string>ArenaShareSDK</string>
+	<key>namespace</key>
+	<string>ArenaShareSDK</string>
+	<key>supports</key>
+	<array>
+		<dict>
+			<key>api</key>
+			<string>arena.extra.share</string>
+			<key>method</key>
+			<string>share</string>
+			<key>className</key>
+			<string>Share</string>
+			<key>async</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>
