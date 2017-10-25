@@ -5,7 +5,7 @@
 	<key>project</key>
 	<string>ArenaShareSDK</string>
 	<key>namespace</key>
-	<string>ArenaShareSDK</string>
+	<string></string>
 	<key>supports</key>
 	<array>
 		<dict>

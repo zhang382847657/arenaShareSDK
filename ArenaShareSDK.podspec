@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "ArenaShareSDK", "ArenaShareSDK/**/*.{h,swift}"
-  s.exclude_files = "Classes/Exclude"
+  s.exclude_files = "ArenaShareSDK/UMSocial-Bridging-Header.h"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -118,7 +118,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  s.frameworks = "UMSocialCore", "UShareUI"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
@@ -132,7 +132,7 @@ Pod::Spec.new do |s|
 
   # s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(PROJECT_DIR)/ArenaShareSDK/UMSocial/UMSocialSDK" }
   # s.dependency "JSONKit", "~> 1.4"
 
 end
