@@ -91,8 +91,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "ArenaShareSDK", "ArenaShareSDK/**/*.{h,swift}"
-  s.exclude_files = "ArenaShareSDK/UMSocial-Bridging-Header.h"
+  s.source_files  = "ArenaShareSDK", "ArenaShareSDK/**/*.{h,m}"
+  s.exclude_files = "ArenaShareSDK/ArenaShareSDK.h"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "*.plist"
+  s.resources = "*.plist","*.bundle"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -118,10 +118,11 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "UMSocialCore", "UShareUI"
+  s.frameworks = "UMSocialCore", "UShareUI","UMSocialNetwork","TencentOpenAPI","CoreTelephony","SystemConfiguration","CoreGraphics"
 
   # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
+  s.libraries = "z", "SocialUniqueld","c++","sqlite3","WeChatSDK","SocialWeChat","UMSocialLog","SocialQQ"
+  # s.vendored_libraries = '/UMSocial/**/*.a'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -132,7 +133,10 @@ Pod::Spec.new do |s|
 
   # s.requires_arc = true
 
+	  
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(PROJECT_DIR)/ArenaShareSDK/UMSocial/UMSocialSDK" }
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(PROJECT_DIR)/ArenaShareSDK/UMSocial/UMSocialUI" }
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(PROJECT_DIR)/ArenaShareSDK/UMSocial/SocialLibraries/QQ/QQSDK" }
   # s.dependency "JSONKit", "~> 1.4"
 
 end
