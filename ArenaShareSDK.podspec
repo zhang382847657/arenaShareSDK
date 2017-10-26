@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ArenaShareSDK"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Arena集成友盟分享的SDK"
 
   # This description is used to generate tags and improve search results.
@@ -138,5 +138,8 @@ Pod::Spec.new do |s|
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(PROJECT_DIR)/ArenaShareSDK/UMSocial/UMSocialUI" }
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(PROJECT_DIR)/ArenaShareSDK/UMSocial/SocialLibraries/QQ/QQSDK" }
   # s.dependency "JSONKit", "~> 1.4"
+  s.dependency "UMengUShare/UI"
+  s.dependency "UMengUShare/Social/WeChat"
+  s.dependency "UMengUShare/Social/QQ"
 
 end
