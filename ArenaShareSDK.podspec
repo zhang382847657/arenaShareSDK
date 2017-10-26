@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ArenaShareSDK"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "Arena集成友盟分享的SDK"
 
   # This description is used to generate tags and improve search results.
@@ -118,11 +118,12 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "UMSocialCore", "UShareUI","UMSocialNetwork","TencentOpenAPI","CoreTelephony","SystemConfiguration","CoreGraphics"
+  s.frameworks = "CoreTelephony","SystemConfiguration","CoreGraphics"
+  # "UMSocialCore", "UShareUI","UMSocialNetwork","TencentOpenAPI","CoreTelephony","SystemConfiguration","CoreGraphics"
 
   # s.library   = "iconv"
-  s.libraries = "z", "SocialUniqueld","c++","sqlite3","WeChatSDK","SocialWeChat","UMSocialLog","SocialQQ"
-  # s.vendored_libraries = '/UMSocial/**/*.a'
+  s.libraries = "z", "c++","sqlite3"
+# s.libraries = "z", "SocialUniqueld","c++","sqlite3","WeChatSDK","SocialWeChat","UMSocialLog","SocialQQ"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
