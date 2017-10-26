@@ -7,12 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "Share.h"
-
-// U-Share核心SDK
-#import <UMSocialCore/UMSocialCore.h>
-// U-Share分享面板SDK，未添加分享面板SDK可将此行去掉
-#import <UShareUI/UShareUI.h>
+#import "Share.h"
 
 //! Project version number for ArenaShareSDK.
 FOUNDATION_EXPORT double ArenaShareSDKVersionNumber;
