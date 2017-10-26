@@ -558,6 +558,7 @@
 					"$(PROJECT_DIR)/ArenaShareSDK/UMSocial/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/ArenaShareSDK/UMSocial/UMSocialSDKPlugin",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhanglin.ArenaShareSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -592,6 +593,7 @@
 					"$(PROJECT_DIR)/ArenaShareSDK/UMSocial/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/ArenaShareSDK/UMSocial/UMSocialSDKPlugin",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhanglin.ArenaShareSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
