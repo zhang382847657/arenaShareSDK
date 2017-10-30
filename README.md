@@ -9,7 +9,8 @@
 
 **代码**
 ```
-Share.configUSharePlatforms()
+///集成友盟分享的一些配置信息 友盟的APPKEY 以及微信和QQ的Key///
+Share.configUSharePlatforms(with: "59ee97488f4a9d1b8a000010", andWXAppKey: "wx085a8685d1892707", andWXSecret: "0a6538a186d20bc2b8d155362b21c9c2", andQQAppKey: "", andRedirectURL: "")
 ```
 
 
@@ -22,11 +23,11 @@ Share.configUSharePlatforms()
 Share.share(data: [ "title":"分享的标题",
                     "content":"分享的内容",
                     "url":"https://www.baidu.com",
-                    "imageUrl":"https://www.baidu.com/pic/login.png"])
+                    "image":"https://www.baidu.com/pic/login.png"])
 ```
 **参数**
 > data 字典类型
 >   - title 分享的标题 必填
 >   - content 分享的内容  必填
 >   - url 分享的链接  必填
->   - imageUrl 分享的图片  选填
+>   - image 分享的图片  选填

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ArenaShareSDK'
-  s.version          = '1.0.5'
+  s.version          = '1.0.6'
   s.summary          = 'Arena集成友盟分享的SDK'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-                      集成友盟分享
+                      集成友盟分享,支持微信以及QQ，方便Arena框架使用分享功能
                        DESC
 
   s.homepage         = 'https://github.com/zhang382847657/arenaShareSDK'

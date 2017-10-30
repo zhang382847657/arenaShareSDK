@@ -12,7 +12,7 @@
 			<key>api</key>
 			<string>arena.extra.share</string>
 			<key>method</key>
-			<string>share</string>
+			<string>share:</string>
 			<key>className</key>
 			<string>Share</string>
 			<key>async</key>
