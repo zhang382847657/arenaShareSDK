@@ -6,12 +6,9 @@
 //  Copyright © 2016年 dongjianxiong. All rights reserved.
 //
 
-//#import <UMSocialCore/UMSocialCore.h>
+#import <UMSocialCore/UMSocialCore.h>
 
-@class UMSocialQQHandler;
-@class UMSocialHandler;
-
-@interface UMSocialQQHandler
+@interface UMSocialQQHandler : UMSocialHandler
 
 + (UMSocialQQHandler *)defaultManager;
 
