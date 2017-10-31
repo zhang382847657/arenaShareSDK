@@ -55,7 +55,7 @@
         UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
         
         //创建网页内容对象
-        NSString* thumbURL =  data[@"imageUrl"];
+        NSString* thumbURL =  data[@"image"];
         UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:data[@"title"] descr:data[@"content"] thumImage:thumbURL];
         //设置网页地址
         shareObject.webpageUrl = data[@"url"];
