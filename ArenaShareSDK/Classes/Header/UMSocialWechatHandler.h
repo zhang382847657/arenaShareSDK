@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <UMSocialCore/UMSocialCore.h>
+//#import <UMSocialCore/UMSocialCore.h>
+@class UMSocialWechatHandler
 
-@interface UMSocialWechatHandler : UMSocialHandler
+@interface UMSocialWechatHandler //: UMSocialHandler
 
 + (instancetype)defaultManager;
 
