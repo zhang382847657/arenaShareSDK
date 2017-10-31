@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ArenaShareSDK'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'Arena集成友盟分享的SDK'
 
 # This description is used to generate tags and improve search results.

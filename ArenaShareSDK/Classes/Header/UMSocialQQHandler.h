@@ -8,7 +8,7 @@
 
 //#import <UMSocialCore/UMSocialCore.h>
 
-@class UMSocialQQHandler
+@class UMSocialQQHandler;
 
 @interface UMSocialQQHandler // : UMSocialHandler
 

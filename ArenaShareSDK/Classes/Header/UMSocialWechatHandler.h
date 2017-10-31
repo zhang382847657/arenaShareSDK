@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //#import <UMSocialCore/UMSocialCore.h>
-@class UMSocialWechatHandler
+@class UMSocialWechatHandler;
 
 @interface UMSocialWechatHandler //: UMSocialHandler
 
