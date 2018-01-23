@@ -41,13 +41,21 @@ Share.configUSharePlatforms(with: "59ee97488f4a9d1b8a000010", //友盟AppKey
 
 ### 6. 调用分享功能
 
-此功能可以在当前页面弹出分享弹窗，以及把想要分享的内容分享出去
+- 分享网页链接
 
-```
-Share.share(data: [ "title":"分享的标题",  //必填
+	```
+	Share.share(data: [ "title":"分享的标题",  //必填
                     "content":"分享的内容",  //必填
                     "url":"https://www.baidu.com",  //必填
                     "image":"https://www.baidu.com/pic/login.png"] //选填
                     )
-```
+	```
+
+
+- 分享本地图片
+
+	```
+	Share.shareImage(data: [ "filePath":"图片在本地的路径"] //必填
+                    )
+	```
 

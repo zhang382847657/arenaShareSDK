@@ -14,6 +14,13 @@
 + (void)configUSharePlatformsWith:(NSString *)umAppKey andWXAppKey:(NSString *)wxAppKey
                       andWXSecret:(NSString *)wxSecret andQQAppKey:(NSString *)qqAppKey
                    andRedirectURL:(NSString *)redirectUrl;
-//分享
+/** 分享网页
+ *  标题、描述、缩略图、网页url
+ */
 +(void)share:(NSDictionary*) data;
+
+/** 分享本地图片*/
++(void)shareImage:(NSDictionary*) data;
+
 @end
+

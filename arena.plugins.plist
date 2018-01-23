@@ -18,6 +18,16 @@
 			<key>async</key>
 			<true/>
 		</dict>
+		<dict>
+			<key>api</key>
+			<string>arena.extra.shareImage</string>
+			<key>method</key>
+			<string>shareImage:</string>
+			<key>className</key>
+			<string>Share</string>
+			<key>async</key>
+			<true/>
+		</dict>
 	</array>
 </dict>
 </plist>

@@ -44,7 +44,7 @@
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:qqAppKey/*设置QQ平台的appID*/  appSecret:nil redirectURL:redirectUrl];
 }
 
-//分享
+//分享网页链接
 +(void)share:(NSDictionary*) data{
     [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_WechatSession)]];
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
@@ -89,10 +89,60 @@
             }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:data[@"callback"] object:result userInfo:nil];
-    
+            
+        }];
+        
+    }];
+}
+
+
+//分享本地图片
++(void)shareImage:(NSDictionary*) data{
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_WechatSession)]];
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        // 根据获取的platformType确定所选平台进行下一步操作
+        
+        //创建分享消息对象
+        UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+        
+        //创建图片内容对象
+        UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
+        [shareObject setShareImage:[UIImage imageWithContentsOfFile:data[@"filePath"]]];
+        
+        //分享消息对象设置分享内容对象
+        messageObject.shareObject = shareObject;
+        
+        
+        //调用分享接口
+        [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:[UIViewController currentViewController:nil] completion:^(id data, NSError *error) {
+            
+            NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"result",@"success", nil] ;
+            
+            
+            if (error) {
+                UMSocialLogInfo(@"************Share fail with error %@*********",error);
+                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"result",@"failed", nil] ;
+            }else{
+                if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                    UMSocialShareResponse *resp = data;
+                    //分享结果消息
+                    UMSocialLogInfo(@"response message is %@",resp.message);
+                    //第三方原始返回的数据
+                    UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+                    
+                }else{
+                    UMSocialLogInfo(@"response data is %@",data);
+                }
+                
+                [result setValue:@"data" forKey:data];
+            }
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:data[@"callback"] object:result userInfo:nil];
+            
         }];
         
     }];
 }
 
 @end
+
