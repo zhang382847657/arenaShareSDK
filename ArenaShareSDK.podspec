@@ -34,6 +34,10 @@ Pod::Spec.new do |s|
   s.frameworks = 'CoreGraphics','UIKit','Foundation'
   s.libraries = 'sqlite3'
 
+  s.pod_target_xcconfig = { 
+    'OTHER_LDFLAGS' => ['-ObjC'] 
+  }
+
   s.vendored_frameworks = 'Frameworks/*'
   s.vendored_libraries = 'Libraries/*'
   s.resource = 'Resources/*','*.plist'
