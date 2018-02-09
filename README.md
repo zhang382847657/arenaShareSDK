@@ -16,16 +16,13 @@ pod 'ArenaShareSDK'
 - 在项目的`Info.plist`文件中添加白名单，具体操作请[戳这里](http://dev.umeng.com/social/ios/quick-integration)
 - 在项目的`Info -> URL Types `里添加对应平台的`URL Scheme`，具体操作请[戳这里](http://dev.umeng.com/social/ios/quick-integration)
 
-### 3. 配置Other Link
 
-选中项目的Pods工程，在TARGETS中选中`ArenaShareSDK`， 在`Build Settings -> Other Linker Flags`中，新增`-ObjC`
-
-### 4. 引入资源文件
+### 3. 引入资源文件
 
 用`Finder`打开`ArenaShareSDK`，把`Libraries`文件夹下所有的`.a`文件以及`Resources`文件夹下所有的`.bundle`文件都添加到项目中，然后在项目的`Build Phases -> Copy Bundle Resources `中引入刚才所有的`.a`和`.bundle`
 
 
-### 5. 友盟初始化设置
+### 4. 友盟初始化设置
 
 需要在Appdelegate.swift文件中的`didFinishLaunchingWithOptions`函数里调用以下代码，主要是对友盟进行初始化的设置
 
@@ -39,7 +36,16 @@ Share.configUSharePlatforms(with: "59ee97488f4a9d1b8a000010", //友盟AppKey
  )
 ```
 
-### 6. 调用分享功能
+同时在Appdelegate.swift文件中的`openUrl`函数里调用以下代码，主要是为了让友盟分享的回调能响应
+
+```
+func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    return Share.applicationOpen(url)
+}
+```
+
+
+### 5. 调用分享功能
 
 - 分享网页链接
 
