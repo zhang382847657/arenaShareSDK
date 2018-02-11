@@ -75,12 +75,12 @@
         //调用分享接口
         [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:[UIViewController currentViewController:nil] completion:^(id data, NSError *error) {
             
-            NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"result",@"success", nil] ;
+            NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"success",@"result", nil] ;
             
             
             if (error) {
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
-                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"result",@"failed", nil] ;
+                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"failed",@"result", nil] ;
             }else{
                 if ([data isKindOfClass:[UMSocialShareResponse class]]) {
                     UMSocialShareResponse *resp = data;
@@ -93,7 +93,7 @@
                     UMSocialLogInfo(@"response data is %@",data);
                 }
                 
-                [result setValue:@"data" forKey:data];
+                [result setValue:data forKey:@"data"];
             }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:data[@"callback"] object:result userInfo:nil];
@@ -124,12 +124,12 @@
         //调用分享接口
         [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:[UIViewController currentViewController:nil] completion:^(id data, NSError *error) {
             
-            NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"result",@"success", nil] ;
+            NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"success",@"result", nil] ;
             
             
             if (error) {
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
-                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"result",@"failed", nil] ;
+                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"failed",@"result", nil] ;
             }else{
                 if ([data isKindOfClass:[UMSocialShareResponse class]]) {
                     UMSocialShareResponse *resp = data;
@@ -142,7 +142,7 @@
                     UMSocialLogInfo(@"response data is %@",data);
                 }
                 
-                [result setValue:@"data" forKey:data];
+                [result setValue:data forKey:@"data"];
             }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:data[@"callback"] object:result userInfo:nil];
