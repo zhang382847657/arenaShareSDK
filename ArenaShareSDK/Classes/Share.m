@@ -73,7 +73,7 @@
         
         
         //调用分享接口
-        [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:[UIViewController currentViewController:nil] completion:^(id data, NSError *error) {
+        [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:[UIViewController currentViewController:nil] completion:^(id shareData, NSError *error) {
             
             NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"success",@"result", nil] ;
             
@@ -82,18 +82,18 @@
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
                 result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"failed",@"result", nil] ;
             }else{
-                if ([data isKindOfClass:[UMSocialShareResponse class]]) {
-                    UMSocialShareResponse *resp = data;
+                if ([shareData isKindOfClass:[UMSocialShareResponse class]]) {
+                    UMSocialShareResponse *resp = shareData;
                     //分享结果消息
                     UMSocialLogInfo(@"response message is %@",resp.message);
                     //第三方原始返回的数据
                     UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
                     
                 }else{
-                    UMSocialLogInfo(@"response data is %@",data);
+                    UMSocialLogInfo(@"response data is %@",shareData);
                 }
                 
-                [result setValue:data forKey:@"data"];
+                [result setValue:shareData forKey:@"data"];
             }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:data[@"callback"] object:result userInfo:nil];
@@ -122,7 +122,7 @@
         
         
         //调用分享接口
-        [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:[UIViewController currentViewController:nil] completion:^(id data, NSError *error) {
+        [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:[UIViewController currentViewController:nil] completion:^(id shareData, NSError *error) {
             
             NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"success",@"result", nil] ;
             
@@ -131,18 +131,18 @@
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
                 result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"failed",@"result", nil] ;
             }else{
-                if ([data isKindOfClass:[UMSocialShareResponse class]]) {
-                    UMSocialShareResponse *resp = data;
+                if ([shareData isKindOfClass:[UMSocialShareResponse class]]) {
+                    UMSocialShareResponse *resp = shareData;
                     //分享结果消息
                     UMSocialLogInfo(@"response message is %@",resp.message);
                     //第三方原始返回的数据
                     UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
                     
                 }else{
-                    UMSocialLogInfo(@"response data is %@",data);
+                    UMSocialLogInfo(@"response data is %@",shareData);
                 }
                 
-                [result setValue:data forKey:@"data"];
+                [result setValue:shareData forKey:@"data"];
             }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:data[@"callback"] object:result userInfo:nil];
