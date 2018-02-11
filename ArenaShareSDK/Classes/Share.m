@@ -80,7 +80,7 @@
             
             if (error) {
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
-                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"failed",@"result", nil] ;
+                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"failed",@"result",error.description,@"data", nil] ;
             }else{
                 if ([shareData isKindOfClass:[UMSocialShareResponse class]]) {
                     UMSocialShareResponse *resp = shareData;
@@ -93,7 +93,8 @@
                     UMSocialLogInfo(@"response data is %@",shareData);
                 }
                 
-                [result setValue:shareData forKey:@"data"];
+                [result setObject:@"分享成功" forKey:@"data"];
+                
             }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:data[@"callback"] object:result userInfo:nil];
@@ -129,7 +130,7 @@
             
             if (error) {
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
-                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"failed",@"result", nil] ;
+                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"failed",@"result",error.description,@"data", nil] ;
             }else{
                 if ([shareData isKindOfClass:[UMSocialShareResponse class]]) {
                     UMSocialShareResponse *resp = shareData;
@@ -137,12 +138,12 @@
                     UMSocialLogInfo(@"response message is %@",resp.message);
                     //第三方原始返回的数据
                     UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
-                    
                 }else{
                     UMSocialLogInfo(@"response data is %@",shareData);
                 }
                 
-                [result setValue:shareData forKey:@"data"];
+                [result setObject:@"分享成功" forKey:@"data"];
+                
             }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:data[@"callback"] object:result userInfo:nil];
