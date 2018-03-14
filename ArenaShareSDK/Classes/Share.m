@@ -155,5 +155,54 @@
     }];
 }
 
+//分享网络图片
++(void)downloadImgAndShare:(NSDictionary*) data{
+    // [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_WechatSession)]];
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession)]]; //由于业务需求，值分享微信平台了，QQ被干掉
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        // 根据获取的platformType确定所选平台进行下一步操作
+        
+        //创建分享消息对象
+        UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+        
+        //创建图片内容对象
+        UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
+        [shareObject setShareImage:data[@"image"]];
+        
+        //分享消息对象设置分享内容对象
+        messageObject.shareObject = shareObject;
+        
+        
+        //调用分享接口
+        [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:[UIViewController currentViewController:nil] completion:^(id shareData, NSError *error) {
+            
+            NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"success",@"result", nil] ;
+            
+            
+            if (error) {
+                UMSocialLogInfo(@"************Share fail with error %@*********",error);
+                result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"failed",@"result",error.description,@"data", nil] ;
+            }else{
+                if ([shareData isKindOfClass:[UMSocialShareResponse class]]) {
+                    UMSocialShareResponse *resp = shareData;
+                    //分享结果消息
+                    UMSocialLogInfo(@"response message is %@",resp.message);
+                    //第三方原始返回的数据
+                    UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+                }else{
+                    UMSocialLogInfo(@"response data is %@",shareData);
+                }
+                
+                [result setObject:@"分享成功" forKey:@"data"];
+                
+            }
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:data[@"callback"] object:result userInfo:nil];
+            
+        }];
+        
+    }];
+}
+
 @end
 

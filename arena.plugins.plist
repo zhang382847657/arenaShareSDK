@@ -28,6 +28,16 @@
 			<key>async</key>
 			<true/>
 		</dict>
+		<dict>
+			<key>api</key>
+			<string>arena.biz.util.downloadImgAndShare</string>
+			<key>method</key>
+			<string>downloadImgAndShare:</string>
+			<key>className</key>
+			<string>Share</string>
+			<key>async</key>
+			<true/>
+		</dict>
 	</array>
 </dict>
 </plist>

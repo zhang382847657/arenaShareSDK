@@ -27,5 +27,8 @@
 /** 分享本地图片*/
 +(void)shareImage:(NSDictionary*) data;
 
+/** 分享网络图片*/
++(void)downloadImgAndShare:(NSDictionary*) data;
+
 @end
 
