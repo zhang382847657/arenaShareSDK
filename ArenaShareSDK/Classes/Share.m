@@ -54,7 +54,7 @@
 
 //分享网页链接
 +(void)share:(NSDictionary*) data{
-   // [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_WechatSession)]];
+    // [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_WechatSession)]];
     [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession)]]; //由于业务需求，值分享微信平台了，QQ被干掉
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         // 根据获取的platformType确定所选平台进行下一步操作
@@ -213,17 +213,12 @@
         // 根据获取的platformType确定所选平台进行下一步操作
         
         
-        // 通过图片的url获取图片转成UIImage
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:data[@"image"]]];
-        UIImage *thumImage = [UIImage imageWithData:imageData];
-        
         // 创建分享消息对象
         UMSocialMessageObject *messageObject  = [UMSocialMessageObject messageObject];
         
+        
         // 创建小程序消息对象
-        UMShareMiniProgramObject *shareObject = [UMShareMiniProgramObject shareObjectWithTitle:data[@"title"]
-                                                 descr:data[@"content"]
-                                             thumImage:thumImage;
+        UMShareMiniProgramObject *shareObject =  [UMShareMiniProgramObject shareObjectWithTitle:data[@"title"] descr:data[@"content"] thumImage:data[@"image"]];
         
         shareObject.webpageUrl = data[@"url"];
         shareObject.userName   = data[@"userName"];
@@ -235,6 +230,8 @@
         
         //调用分享接口
         [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:[UIViewController currentViewController:nil] completion:^(id shareData, NSError *error) {
+            
+            
             
             NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"success",@"result", nil] ;
             
@@ -261,8 +258,10 @@
             
         }];
         
+        
+        
     }];
+    
 }
-
 @end
 
