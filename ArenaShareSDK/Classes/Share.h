@@ -30,5 +30,8 @@
 /** 分享网络图片*/
 +(void)downloadImgAndShare:(NSDictionary*) data;
 
+/** 分享小程序*/
++(void)shareSP:(NSDictionary*) data;
+
 @end
 
