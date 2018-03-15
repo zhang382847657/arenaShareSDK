@@ -214,8 +214,8 @@
         
         
         // 通过图片的url获取图片转成UIImage
-        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:data[@"image"]]];
-        UIImage * thumImage = [UIImage imageWithData:data];
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:data[@"image"]]];
+        UIImage *thumImage = [UIImage imageWithData:imageData];
         
         // 创建分享消息对象
         UMSocialMessageObject *messageObject  = [UMSocialMessageObject messageObject];
